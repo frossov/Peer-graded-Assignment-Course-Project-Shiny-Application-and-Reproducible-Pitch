@@ -23,6 +23,13 @@ The app
 The app loads the iris dataset and creates a simple histogram based on one of the variables availiable.
 The user can choose the variable and set the number of bins of the histogram.
 
+function(input, output){
+        output$myhist <- renderPlot({
+            colm <- as.numeric(input$var)
+            hist(iris[,colm], breaks=seq(0, max(iris[,colm]), l=input$bins+1), main="Histogram of the Iris dataset", xlab=names(iris[colm])) 
+        })
+    }
+
 Thank you
 ========================================================
 
